@@ -10,8 +10,10 @@ int main(void)
     SystemCoreClockUpdate();
 
     RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
+    //RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
 
     GPIOC->CRH=0x33333333;
+    //GPIOB->CRL=0x33333333;
 
 	i = rust_main();
 	
@@ -23,5 +25,6 @@ int main(void)
         }
 
         GPIOC->ODR ^= (1 << 13);
+        //GPIOB->ODR ^= (1 << 1);
     }
 }
